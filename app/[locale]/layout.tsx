@@ -1,14 +1,7 @@
 import "../style/globals.css";
 import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
-import { Inter } from "next/font/google";
 import { notFound } from "next/navigation";
-
-const inter = Inter({ subsets: ["latin"] });
-
-export function generateStaticParams() {
-  return [{ locale: "en" }, { locale: "zh" }];
-}
 
 export const metadata: Metadata = {
   title: `Robby's portfolio`,
@@ -28,13 +21,12 @@ export default async function RootLayout({
   try {
     messages = (await import(`../locales/${locale}.json`)).default;
   } catch (error) {
-    console.log(error);
     notFound();
   }
 
   return (
-    <html lang="locale">
-      <body className={inter.className}>
+    <html lang={locale}>
+      <body>
         <NextIntlClientProvider locale={locale} messages={messages}>
           {children}
         </NextIntlClientProvider>
