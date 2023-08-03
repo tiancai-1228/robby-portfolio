@@ -1,11 +1,11 @@
 "use client";
-import Header from "../component/Header";
-import About from "../component/section/About";
-import Contact from "../component/section/Contact";
-import Experience from "../component/section/Experience";
-import Hero from "../component/section/Hero";
-import Project from "../component/section/Project";
-import Skills from "../component/section/Skills";
+import Header from "./component/Header";
+import About from "./component/section/About";
+import Contact from "./component/section/Contact";
+import Experience from "./component/section/Experience";
+import Hero from "./component/section/Hero";
+import Project from "./component/section/Project";
+import Skills from "./component/section/Skills";
 
 const Home = () => {
   return (

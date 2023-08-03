@@ -4,7 +4,6 @@ import { SocialIcon } from "react-social-icons";
 import { motion } from "framer-motion";
 
 function Header() {
-  const t = useTranslations();
   return (
     <div className="z-50 flex justify-between items-start  sticky top-0 p-5 max-w-7xl mx-auto xl:items-center">
       <motion.div
@@ -36,7 +35,7 @@ function Header() {
         className="text-white"
       >
         <SocialIcon network="email" bgColor="rgb(36,36,36)" fgColor="#fff" />
-        {t("HOLLOW")}
+        CONTACT ME
       </motion.div>
     </div>
   );
