@@ -1,0 +1,4 @@
+.heroBtn {
+  @apply px-4 md:w-[1/4] uppercase py-2 border border-primary  rounded-full text-xs md:text-sm  tracking-widest 
+  text-gray-500 transition-all hover:border-secondary hover:text-secondary;
+}

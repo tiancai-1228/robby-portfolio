@@ -1,26 +1,33 @@
 "use client";
 import Header from "../component/Header";
-import About from "../component/container/About";
-import Contact from "../component/container/Contact";
-import Experience from "../component/container/Experience";
-import Hero from "../component/container/Hero";
-import Project from "../component/container/Project";
-import Skills from "../component/container/Skills";
+import About from "../component/section/About";
+import Contact from "../component/section/Contact";
+import Experience from "../component/section/Experience";
+import Hero from "../component/section/Hero";
+import Project from "../component/section/Project";
+import Skills from "../component/section/Skills";
 
 const Home = () => {
   return (
-    <main className="flex min-h-screen flex-col bg-primary overflow-clip">
+    <div className="bg-primary h-screen  text-white  snap-y snap-mandatory  overflow-y-scroll overflow-x-hidden  z-0">
       <Header />
 
-      <main className="mt-[60px] ">
+      <section id="Hero" className="snap-center">
         <Hero />
+      </section>
+
+      <section id="About" className="snap-center">
         <About />
+      </section>
+
+      <section id="Experience" className="snap-center">
         <Experience />
-        <Skills />
-        <Project />
-        <Contact />
-      </main>
-    </main>
+      </section>
+
+      {/* <Skills /> */}
+      {/* <Project /> */}
+      {/* <Contact /> */}
+    </div>
   );
 };
 export default Home;

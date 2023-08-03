@@ -6,24 +6,36 @@ import { motion } from "framer-motion";
 function Header() {
   const t = useTranslations();
   return (
-    <div className="bg-primary z-50  flex justify-between items-center  fixed top-0 w-full h-[60px] md:p-10 p-4">
+    <div className="z-50 flex justify-between items-start  sticky top-0 p-5 max-w-7xl mx-auto xl:items-center">
       <motion.div
         initial={{ x: -500, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
-        transition={{ delay: 1.5 }}
+        transition={{ duration: 1.5 }}
       >
-        <SocialIcon network="instagram" bgColor="#3C4042" fgColor="#fff" />
-        <SocialIcon network="instagram" bgColor="#3C4042" fgColor="#fff" />
-        <SocialIcon network="instagram" bgColor="#3C4042" fgColor="#fff" />
+        <SocialIcon
+          network="instagram"
+          bgColor="rgb(36,36,36)"
+          fgColor="#fff"
+        />
+        <SocialIcon
+          network="instagram"
+          bgColor="rgb(36,36,36)"
+          fgColor="#fff"
+        />
+        <SocialIcon
+          network="instagram"
+          bgColor="rgb(36,36,36)"
+          fgColor="#fff"
+        />
       </motion.div>
 
       <motion.div
         initial={{ x: 500, opacity: 0, scale: 0.5 }}
         animate={{ x: 0, opacity: 1, scale: 1 }}
-        transition={{ delay: 1.5 }}
+        transition={{ duration: 1.5 }}
         className="text-white"
       >
-        <SocialIcon network="email" bgColor="#3C4042" fgColor="#fff" />
+        <SocialIcon network="email" bgColor="rgb(36,36,36)" fgColor="#fff" />
         {t("HOLLOW")}
       </motion.div>
     </div>

@@ -8,9 +8,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: "#3C4042",
-        secondary: "#0859B2",
-        clinico: "#fd9b44",
+        primary: "rgb(36,36,36)",
+        secondary: "#ffb400",
       },
       fontSize: {
         h1: ["36px", { lineHeight: "46.8px" }],
