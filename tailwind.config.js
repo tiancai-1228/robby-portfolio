@@ -16,6 +16,9 @@ module.exports = {
         h2: ["24px", { lineHeight: "31.2px" }],
         h3: ["20px", { lineHeight: "26px" }],
       },
+      screens: {
+        iphoneSE: "376px",
+      },
     },
   },
   plugins: [],

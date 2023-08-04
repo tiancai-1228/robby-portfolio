@@ -9,7 +9,7 @@ import Skills from "./component/section/Skills";
 
 const Home = () => {
   return (
-    <div className="bg-primary h-screen  text-white  snap-y snap-mandatory  overflow-y-scroll overflow-x-hidden  z-0">
+    <main className="bg-primary h-screen  text-white  snap-y snap-mandatory  overflow-y-scroll overflow-x-hidden  z-0">
       <Header />
 
       <section id="Hero" className="snap-center">
@@ -24,10 +24,18 @@ const Home = () => {
         <Experience />
       </section>
 
-      {/* <Skills /> */}
-      {/* <Project /> */}
-      {/* <Contact /> */}
-    </div>
+      <section id="Skills" className="snap-center">
+        <Skills />
+      </section>
+
+      <section id="Project" className="snap-center">
+        <Project />
+      </section>
+
+      <section id="Contact" className="snap-center">
+        <Contact />
+      </section>
+    </main>
   );
 };
 export default Home;
