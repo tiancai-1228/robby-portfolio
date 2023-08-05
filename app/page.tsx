@@ -1,10 +1,11 @@
 "use client";
+import { motion } from "framer-motion";
 import Header from "./component/Header";
 import About from "./component/section/About";
 import Contact from "./component/section/Contact";
 import Experience from "./component/section/Experience";
 import Hero from "./component/section/Hero";
-import Project from "./component/section/Project";
+import Projects from "./component/section/Projects";
 import Skills from "./component/section/Skills";
 
 const Home = () => {
@@ -28,8 +29,8 @@ const Home = () => {
         <Skills />
       </section>
 
-      <section id="Project" className="snap-center">
-        <Project />
+      <section id="Projects" className="snap-center">
+        <Projects />
       </section>
 
       <section id="Contact" className="snap-center">

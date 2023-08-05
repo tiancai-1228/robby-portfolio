@@ -31,7 +31,7 @@ const Experience = () => {
 
       <div className="w-full absolute h-[60%]  flex  ">
         {windowWidth > 768 && (
-          <div className=" absolute h-full flex justify-center items-center w-10">
+          <div className=" absolute h-full left-0 flex justify-center items-center w-10">
             <LeftOutlined
               className="text-4xl cursor-pointer text-secondary z-30"
               onClick={handleScrollLeft}
