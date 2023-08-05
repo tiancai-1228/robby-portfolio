@@ -3,17 +3,30 @@ import { motion } from "framer-motion";
 import ExperienceCard from "../card/Experience.card";
 import { LeftOutlined, RightOutlined } from "@ant-design/icons";
 import useScrollCard from "@/app/hook/useScrollCard";
+import { I_experience } from "@/app/service/interface";
 
-const Experience = () => {
-  const windowWidth = window.innerWidth;
+interface Prop {
+  experience: I_experience[];
+}
 
+const Experience = ({ experience }: Prop) => {
   const {
     listRef,
     current,
     handleOnScroll,
     handleScrollRight,
     handleScrollLeft,
-  } = useScrollCard({ cardLength: 3 });
+  } = useScrollCard({ cardLength: experience.length });
+
+  const renderExperience = () => {
+    return experience.map((el, index) => (
+      <ExperienceCard
+        key={el._id}
+        experience={el}
+        className={current == index ? "opacity-100" : "opacity-40"}
+      />
+    ));
+  };
 
   return (
     <motion.div
@@ -29,9 +42,9 @@ const Experience = () => {
         Experience
       </h3>
 
-      <div className="w-full absolute h-[60%]  flex  ">
-        {windowWidth > 768 && (
-          <div className=" absolute h-full left-0 flex justify-center items-center w-10">
+      <div className="w-full absolute h-[80%] top-24 ">
+        {current !== 0 && (
+          <div className=" absolute top-0 h-full left-0 flex justify-center items-center w-10">
             <LeftOutlined
               className="text-4xl cursor-pointer text-secondary z-30"
               onClick={handleScrollLeft}
@@ -44,19 +57,11 @@ const Experience = () => {
           onScroll={handleOnScroll}
           className="w-full h-full  flex space-x-5 overflow-x-scroll p-10 snap-x snap-mandatory"
         >
-          <ExperienceCard
-            className={current == 0 ? "opacity-100" : "opacity-40"}
-          />
-          <ExperienceCard
-            className={current == 1 ? "opacity-100" : "opacity-40"}
-          />
-          <ExperienceCard
-            className={current == 2 ? "opacity-100" : "opacity-40"}
-          />
+          {renderExperience()}
         </div>
 
-        {windowWidth > 768 && (
-          <div className=" absolute right-0 h-full flex justify-center items-center w-10">
+        {current !== experience.length - 1 && (
+          <div className="absolute top-0 right-0 h-full flex justify-center items-center w-10">
             <RightOutlined
               className="text-4xl cursor-pointer text-secondary z-30"
               onClick={handleScrollRight}

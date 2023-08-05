@@ -1,13 +1,17 @@
 import React from "react";
-import { useTranslations } from "next-intl";
 import { useTypewriter, Cursor } from "react-simple-typewriter";
 import CriclesBackground from "../background/Cricles.background";
-import Robby1 from "../../image/robby1.jpeg";
 import Link from "next/link";
+import { I_pageInfo } from "@/app/service/interface";
+import { urlFor } from "@/app/service/client";
 
-const Hero = () => {
+interface Prop {
+  pageInfo: I_pageInfo;
+}
+
+const Hero = ({ pageInfo }: Prop) => {
   const [text] = useTypewriter({
-    words: ["Hi! I'm Robby Hong"],
+    words: [...pageInfo.typewriter],
     loop: true,
   });
 
@@ -16,13 +20,13 @@ const Hero = () => {
       <CriclesBackground />
       <img
         className=" relative rounded-full h-32 w-32 mx-auto object-cover"
-        src={Robby1.src}
+        src={urlFor(pageInfo?.heroImage).url()}
         alt="Robby"
       />
 
       <div className="z-20">
         <h2 className="text-xs md:text-sm uppercase text-gray-500  tracking-[15px] pb-4">
-          Front End Developer
+          {pageInfo?.role}
         </h2>
 
         <h1 className="text-3xl lg:text-6xl md:text-5xl font-semibold px-10 ">

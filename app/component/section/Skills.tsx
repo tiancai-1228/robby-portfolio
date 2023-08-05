@@ -1,12 +1,29 @@
 import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import Skill from "../Skill";
-import Robby1 from "../../image/robby1.jpeg";
+import { I_skill } from "@/app/service/interface";
+import { urlFor } from "@/app/service/client";
 
-const Skills = () => {
-  const data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
+interface Prop {
+  skills: I_skill[];
+}
+
+const Skills = ({ skills }: Prop) => {
   const ref = useRef(null);
   const isInView = useInView(ref);
+
+  const renderSkill = () => {
+    return skills.map((skill, index) => (
+      <Skill
+        key={skill._id}
+        img={urlFor(skill?.image).url()}
+        name={skill.title}
+        directionLeft={index <= skills.length / 2}
+        isInView={isInView}
+      />
+    ));
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -22,17 +39,7 @@ const Skills = () => {
         Skills
       </h3>
 
-      <div className="grid grid-cols-4 gap-5">
-        {data.map((el) => (
-          <Skill
-            key={el}
-            img={Robby1.src}
-            name={el.toString()}
-            directionLeft={el > data.length / 2}
-            isInView={isInView}
-          />
-        ))}
-      </div>
+      <div className="grid grid-cols-4 gap-5">{renderSkill()}</div>
     </motion.div>
   );
 };
