@@ -82,7 +82,7 @@ const Projects = ({ projects }: Prop) => {
         Project
       </h3>
 
-      <div className="w-screen absolute h-[85%] top-24 z-20">
+      <div className="w-screen absolute h-[80%] top-24 z-20">
         {current !== 0 && (
           <div className=" absolute left-0 top-0 h-full flex justify-center items-center w-10 ml-0 lg:ml-10  ">
             <LeftOutlined
