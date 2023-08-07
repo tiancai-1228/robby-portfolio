@@ -33,7 +33,7 @@ const Contact = ({ pageInfo }: Prop) => {
         opacity: 1,
       }}
       viewport={{ once: true }}
-      className="mt-[1px] h-screen relative flex flex-col justify-center items-center  max-w-7xl mx-auto px-0 md:p-10 overflow-hidden"
+      className="mt-[1px] h-screen relative flex flex-col justify-center items-center  max-w-6xl mx-auto px-0 md:p-10 overflow-hidden"
     >
       <h3 className=" absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl font-semibold">
         Contact
@@ -58,7 +58,7 @@ const Contact = ({ pageInfo }: Prop) => {
 
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="flex flex-col space-y-2 w-full iphoneSE:mx-auto "
+          className="flex flex-col space-y-2 xl:space-y-4 w-full iphoneSE:mx-auto  px-4"
         >
           <div className="flex space-x-2 ">
             <input
@@ -89,7 +89,7 @@ const Contact = ({ pageInfo }: Prop) => {
 
           <button
             type="submit"
-            className=" bg-secondary py-5 px-10 rounded-md text-black font-bold text-lg"
+            className=" bg-secondary py-3 px-10 rounded-md text-black font-bold text-lg"
           >
             Submit
           </button>

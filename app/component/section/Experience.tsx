@@ -36,9 +36,9 @@ const Experience = ({ experience }: Prop) => {
         opacity: 1,
       }}
       viewport={{ once: true }}
-      className="mt-[1px]   h-screen relative flex flex-col justify-center items-center  max-w-7xl mx-auto px-10 "
+      className="mt-[1px] h-screen relative flex flex-col justify-center items-center  max-w-7xl mx-auto px-10 "
     >
-      <h3 className=" absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl font-semibold">
+      <h3 className="absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl font-semibold">
         Experience
       </h3>
 

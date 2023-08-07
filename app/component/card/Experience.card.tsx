@@ -1,9 +1,10 @@
 import { urlFor } from "@/app/service/client";
 import { I_experience } from "@/app/service/interface";
-import { motion } from "framer-motion";
-import React, { useEffect } from "react";
+import { motion, useInView } from "framer-motion";
+import React, { useEffect, useRef } from "react";
 import { twMerge } from "tailwind-merge";
 import moment from "moment";
+import Skill from "../Skill";
 
 interface Prop {
   className?: string;
@@ -11,19 +12,25 @@ interface Prop {
 }
 
 function ExperienceCard({ className, experience }: Prop) {
+  const ref = useRef(null);
+  const isInView = useInView(ref);
+
   const renderTech = () => {
-    return experience.technologies.map((tech) => (
-      <img
+    return experience.technologies.map((tech, index) => (
+      <Skill
         key={tech._id}
-        src={urlFor(tech?.image).url()}
-        alt={tech.title}
-        className="h-10 w-10 rounded-full"
+        img={urlFor(tech?.image).url()}
+        name={tech.title}
+        directionLeft={index <= experience.technologies.length / 2}
+        isInView={isInView}
+        className="w-10 h-10 md:w-14 md:h-14 xl:w-14 xl:h-14 border-0"
       />
     ));
   };
 
   return (
     <article
+      ref={ref}
       className={twMerge(
         "flex flex-col  rounded-lg items-center justify-center space-y-2 md:space-y-7 flex-shrink-0 w-[400px] md:w-[600px] xl:w-[900px] snap-center bg-[#292929] p-10  transition-all duration-500 overflow-hidden",
         className
@@ -49,9 +56,9 @@ function ExperienceCard({ className, experience }: Prop) {
         <p className=" font-bold text-sm iphoneSE:text-xl md:text-2xl  mt-1">
           {experience.company}
         </p>
-        <div className="flex space-x-2 my-[1-px] md:my-2">{renderTech()}</div>
+        <div className="flex space-x-2 my-[1px]">{renderTech()}</div>
 
-        <p className=" uppercase py-5 text-gray-300">
+        <p className=" uppercase py-2 md:pb-5 text-gray-300">
           {moment(experience.dateStarted).format("YYYY-MM-DD")} ~{" "}
           {experience.isWorkingHere
             ? "Present"

@@ -16,7 +16,7 @@ const About = ({ pageInfo }: Prop) => {
       whileInView={{
         opacity: 1,
       }}
-      className="mt-[1px] h-screen relative flex flex-col justify-center items-center text-center md:text-left md:flex-row max-w-7xl mx-auto px-10 "
+      className="mt-[1px] h-screen relative flex flex-col justify-center items-center text-center space-y-7 md:text-left md:flex-row max-w-7xl mx-auto px-10 "
     >
       <h3 className=" absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl font-semibold">
         About
@@ -30,7 +30,7 @@ const About = ({ pageInfo }: Prop) => {
           x: 0,
         }}
         viewport={{ once: true }}
-        className="mb-20 md:mb-0 mt-10 iphoneSE:mt-0  flex-shrink-0  w-40 h-40 rounded-full object-cover iphoneSE:w-56 iphoneSE:h-56 md:rounded-lg md:w-[400px] md:h-[500px] xl:w-[500px] xl:h-[600px]"
+        className="flex-shrink-0  w-40 h-40 rounded-full object-cover iphoneSE:w-56 iphoneSE:h-56 md:rounded-lg md:w-[400px] md:h-[500px] xl:w-[500px] xl:h-[600px]"
         src={urlFor(pageInfo?.aboutMeImage).url()}
       />
 

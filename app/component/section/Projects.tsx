@@ -4,6 +4,7 @@ import { LeftOutlined, RightOutlined } from "@ant-design/icons";
 import { motion } from "framer-motion";
 import { I_project } from "@/app/service/interface";
 import { urlFor } from "@/app/service/client";
+import Skill from "../Skill";
 
 interface Prop {
   projects: I_project[];
@@ -17,6 +18,19 @@ const Projects = ({ projects }: Prop) => {
     handleScrollRight,
     handleScrollLeft,
   } = useScrollCard({ cardLength: projects.length });
+
+  const renderTech = (projects: I_project) => {
+    return projects.technologies.map((tech, index) => (
+      <Skill
+        key={tech._id}
+        img={urlFor(tech?.image).url()}
+        name={tech.title}
+        directionLeft={index <= projects.technologies.length / 2}
+        isInView={true}
+        className="w-12 h-12 md:w-16 md:h-16 xl:w-14 xl:h-14 border-0"
+      />
+    ));
+  };
 
   const Project = () => {
     return projects.map((project) => (
@@ -43,17 +57,10 @@ const Projects = ({ projects }: Prop) => {
           </h4>
 
           <div className="flex items-center justify-center space-x-2">
-            {project.technologies.map((tech) => (
-              <img
-                key={tech._id}
-                src={urlFor(tech?.image).url()}
-                alt={tech.title}
-                className="h-6 w-6  md:h-10 md:w-10 rounded-full"
-              />
-            ))}
+            {renderTech(project)}
           </div>
 
-          <p className="text-sm iphoneSE:text-base md:text-2xl">
+          <p className="text-[12px]  iphoneSE:text-sm md:text-2xl">
             {project.summary}
           </p>
         </div>
@@ -71,34 +78,37 @@ const Projects = ({ projects }: Prop) => {
       viewport={{ once: true }}
       className="mt-[1px] h-screen relative flex flex-col justify-center items-center  max-w-full mx-auto px-0 md:px-10 "
     >
-      <h3 className="mt-[96px] uppercase tracking-[20px] text-gray-500 text-2xl font-semibold">
+      <h3 className="absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl font-semibold">
         Project
       </h3>
-      {current !== 0 && (
-        <div className=" absolute  left-0 h-full flex justify-center items-center w-10 ml-0 lg:ml-10  ">
-          <LeftOutlined
-            className="text-4xl cursor-pointer text-secondary z-30"
-            onClick={handleScrollLeft}
-          />
-        </div>
-      )}
 
-      <div
-        ref={listRef}
-        onScroll={handleOnScroll}
-        className="w-screen h-[calc(100vh-_96px)] flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20"
-      >
-        {Project()}
+      <div className="w-screen absolute h-[85%] top-24 z-20">
+        {current !== 0 && (
+          <div className=" absolute left-0 top-0 h-full flex justify-center items-center w-10 ml-0 lg:ml-10  ">
+            <LeftOutlined
+              className="text-4xl cursor-pointer text-secondary z-30"
+              onClick={handleScrollLeft}
+            />
+          </div>
+        )}
+
+        <div
+          ref={listRef}
+          onScroll={handleOnScroll}
+          className="w-full h-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20"
+        >
+          {Project()}
+        </div>
+
+        {current !== projects.length - 1 && (
+          <div className=" absolute right-0 top-0 h-full flex justify-center items-center w-10 mr-0 lg:mr-10">
+            <RightOutlined
+              className="text-4xl cursor-pointer text-secondary z-30"
+              onClick={handleScrollRight}
+            />
+          </div>
+        )}
       </div>
-
-      {current !== projects.length - 1 && (
-        <div className=" absolute right-0 h-full flex justify-center items-center w-10 mr-0 lg:mr-10">
-          <RightOutlined
-            className="text-4xl cursor-pointer text-secondary z-30"
-            onClick={handleScrollRight}
-          />
-        </div>
-      )}
 
       <div className="w-full absolute top-[30%] bg-secondary opacity-30 left-0 h-[400px] md:h-[500px] -skew-y-12" />
     </motion.div>

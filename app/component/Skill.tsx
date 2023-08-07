@@ -1,15 +1,17 @@
 import React, { useEffect } from "react";
 
 import { motion, useAnimate } from "framer-motion";
+import { twMerge } from "tailwind-merge";
 
 interface Prop {
   directionLeft?: boolean;
   isInView?: boolean;
   img?: string;
   name: string;
+  className?: string;
 }
 
-function Skill({ directionLeft, isInView, img, name }: Prop) {
+function Skill({ directionLeft, isInView, img, name, className }: Prop) {
   const [scope, animate] = useAnimate();
 
   useEffect(() => {
@@ -19,19 +21,26 @@ function Skill({ directionLeft, isInView, img, name }: Prop) {
   }, [isInView]);
 
   return (
-    <div className=" group relative flex cursor-pointer overflow-hidden">
+    <div
+      className={twMerge(
+        "group relative flex cursor-pointer overflow-hidden w-16 h-16 md:w-24 md:h-24 xl:w-32 xl:h-32 border border-gary-500 rounded-full",
+        className
+      )}
+    >
       <motion.img
         initial={{ x: directionLeft ? -200 : 200, opacity: 1 }}
         viewport={{ once: true }}
         ref={scope}
         alt={name}
         src={img}
-        className="rounded-full  p-2 md:p-6 border border-gary-500 object-cover w-16 h-16 md:w-24 md:h-24 xl:w-32 xl:h-32 filter group-hover:grayscale transition duration-300 ease-in-out"
+        className=" rounded-full  p-3  object-cover w-full h-full  filter group-hover:grayscale transition duration-300 ease-in-out"
       />
 
-      <div className=" absolute opacity-0 rounded-full transition duration-300 ease-in-out  group-hover:opacity-80  group-hover:bg-white  w-16 h-16 md:w-24 md:h-24 xl:w-32 xl:h-32">
-        <div className="flex justify-center items-center h-full">
-          <p className=" text-sm font-bold text-black opacity-100">{name}</p>
+      <div className=" absolute opacity-0 rounded-full transition duration-300 ease-in-out  group-hover:opacity-80  group-hover:bg-white  w-full h-full">
+        <div className="flex justify-center items-center h-full  p-2 ">
+          <p className=" text-[10px] md:text-sm font-bold text-black opacity-100">
+            {name}
+          </p>
         </div>
       </div>
     </div>
