@@ -95,7 +95,7 @@ const Projects = ({ projects }: Prop) => {
         <div
           ref={listRef}
           onScroll={handleOnScroll}
-          className="w-full h-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20"
+          className="w-full h-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20 no-scrollbar"
         >
           {Project()}
         </div>
