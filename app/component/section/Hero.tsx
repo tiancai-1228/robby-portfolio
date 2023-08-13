@@ -23,6 +23,7 @@ const Hero = ({ pageInfo }: Prop) => {
 
       <img
         src={urlFor(pageInfo?.heroImage).url()}
+        sizes={"128"}
         className=" relative rounded-full w-32  h-32 mx-auto object-cover"
         alt="Robby"
       />

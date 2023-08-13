@@ -34,6 +34,7 @@ function Skill({ directionLeft, isInView, img, name, className }: Prop) {
         ref={scope}
         alt={name}
         src={img}
+        sizes={"64"}
         className=" rounded-full  p-3  object-cover w-full h-full  filter group-hover:grayscale transition duration-300 ease-in-out"
       />
 

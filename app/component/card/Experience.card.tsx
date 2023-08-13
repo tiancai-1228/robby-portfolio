@@ -43,6 +43,7 @@ function ExperienceCard({ className, experience }: Prop) {
           opacity: 1,
           y: 0,
         }}
+        sizes={"200"}
         viewport={{ once: true }}
         className="w-[100px] h-[100px] rounded-full xl:w-[200px] xl:h-[200px] object-cover object-center"
         src={urlFor(experience.companyImage).url()}

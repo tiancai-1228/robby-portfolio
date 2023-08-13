@@ -30,6 +30,7 @@ const About = ({ pageInfo }: Prop) => {
           opacity: 1,
           x: 0,
         }}
+        sizes={"224"}
         viewport={{ once: true }}
         className="flex-shrink-0  w-40 h-40 rounded-full object-cover iphoneSE:w-56 iphoneSE:h-56 md:rounded-lg md:w-[400px] md:h-[500px] xl:w-[500px] xl:h-[600px]"
         src={urlFor(pageInfo?.aboutMeImage).url()}
