@@ -44,10 +44,10 @@ function Header({ socials }: Prop) {
         <Link href={"#Contact"} className="flex justify-center items-center">
           <img
             src={Email.src}
-            alt={"CONTACT me"}
+            alt="contactME"
             className="w-8 h-8 object-cover mx-2"
           />
-          <p className=" hidden uppercase md:inline-flex text-sm font-semibold text-gray-500">
+          <p className=" hidden uppercase md:inline-flex text-sm font-semibold text-gray-300">
             CONTACT ME
           </p>
         </Link>
