@@ -1,5 +1,6 @@
-import React, { useEffect } from "react";
+"use client";
 
+import React, { useEffect } from "react";
 import { motion, useAnimate } from "framer-motion";
 import { twMerge } from "tailwind-merge";
 

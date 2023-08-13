@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import { PhoneIcon } from "@heroicons/react/20/solid";
 import { EnvelopeIcon } from "@heroicons/react/24/outline";

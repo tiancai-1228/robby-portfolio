@@ -2257,6 +2257,13 @@ next-intl@^2.19.0:
     negotiator "^0.6.3"
     use-intl "^2.19.1"
 
+next-sanity-image@^6.1.0:
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/next-sanity-image/-/next-sanity-image-6.1.0.tgz#aebd41e2387e9d2ce68cb86f8f93eca5811aeb47"
+  integrity sha512-xSIMPqgRFsurZhNTp0d0q/8ZDjmOR3thhle7u0M9SHIKCYWMy3e3p9Q6Gx2f+CcY8TbE43OPZHVEsMrzt0yqNQ==
+  dependencies:
+    "@sanity/image-url" "^1.0.2"
+
 next-sanity@^5.1.6:
   version "5.1.6"
   resolved "https://registry.yarnpkg.com/next-sanity/-/next-sanity-5.1.6.tgz#4bbdc91ef6ef600e1f89589b91bb70845c2a6183"

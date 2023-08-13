@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import useScrollCard from "@/app/hook/useScrollCard";
 import { LeftOutlined, RightOutlined } from "@ant-design/icons";

@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import Email from "../image/email.png";
 import { motion } from "framer-motion";
