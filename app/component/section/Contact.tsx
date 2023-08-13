@@ -37,9 +37,9 @@ const Contact = ({ pageInfo }: Prop) => {
       viewport={{ once: true }}
       className="mt-[1px] h-screen relative flex flex-col justify-center items-center  max-w-6xl mx-auto px-0 md:p-10 overflow-hidden"
     >
-      <h3 className=" absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl font-semibold">
+      <h2 className=" absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl font-semibold">
         Contact
-      </h3>
+      </h2>
 
       <div className="space-y-4 iphoneSE:space-y-10 w-full flex flex-col justify-center items-center mt-[140px] iphoneSE:mt-0 ">
         <h4 className="text-xl md:text-4xl font-semibold text-center p-4 md:p-0 ">

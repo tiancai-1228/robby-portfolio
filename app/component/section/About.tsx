@@ -19,9 +19,9 @@ const About = ({ pageInfo }: Prop) => {
       }}
       className="mt-[1px] h-screen relative flex flex-col justify-center items-center text-center space-y-7 md:text-left md:flex-row max-w-7xl mx-auto px-10 "
     >
-      <h3 className=" absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl font-semibold">
+      <h2 className=" absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl font-semibold">
         About
-      </h3>
+      </h2>
 
       <motion.img
         initial={{ x: -200, opacity: 0 }}
@@ -33,6 +33,7 @@ const About = ({ pageInfo }: Prop) => {
         viewport={{ once: true }}
         className="flex-shrink-0  w-40 h-40 rounded-full object-cover iphoneSE:w-56 iphoneSE:h-56 md:rounded-lg md:w-[400px] md:h-[500px] xl:w-[500px] xl:h-[600px]"
         src={urlFor(pageInfo?.aboutMeImage).url()}
+        alt={"about robby"}
       />
 
       <div className=" space-y-8 p-0 md:p-10">

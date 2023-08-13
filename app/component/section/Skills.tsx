@@ -37,9 +37,9 @@ const Skills = ({ skills }: Prop) => {
       viewport={{ once: true }}
       className="mt-[1px] h-screen relative flex flex-col justify-center items-center  max-w-7xl mx-auto px-10 "
     >
-      <h3 className=" absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl font-semibold">
+      <h2 className=" absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl font-semibold">
         Skills
-      </h3>
+      </h2>
 
       <div className="grid grid-cols-4 gap-5">{renderSkill()}</div>
     </motion.div>

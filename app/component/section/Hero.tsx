@@ -6,7 +6,6 @@ import CriclesBackground from "../background/Cricles.background";
 import Link from "next/link";
 import { I_pageInfo } from "@/app/service/interface";
 import { urlFor } from "@/app/service/client";
-import Image from "next/image";
 
 interface Prop {
   pageInfo: I_pageInfo;
@@ -22,11 +21,9 @@ const Hero = ({ pageInfo }: Prop) => {
     <div className="h-screen  flex flex-col  justify-center items-center  space-y-8  text-center overflow-hidden pt-24 ">
       <CriclesBackground />
 
-      <Image
+      <img
         src={urlFor(pageInfo?.heroImage).url()}
-        width={128}
-        height={128}
-        className=" relative rounded-full  mx-auto object-cover"
+        className=" relative rounded-full w-32  h-32 mx-auto object-cover"
         alt="Robby"
       />
 
