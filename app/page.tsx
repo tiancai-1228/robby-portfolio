@@ -18,14 +18,6 @@ import { getSkill } from "./service/api/skill";
 import { getExperience } from "./service/api/experience";
 import { getProject } from "./service/api/project";
 
-interface Prop {
-  pageInfo: I_pageInfo;
-  socials: I_social[];
-  skills: I_skill[];
-  experience: I_experience[];
-  projects: I_project[];
-}
-
 async function getServerData() {
   const pageInfo: I_pageInfo = await getPageInfo();
   const socials: I_social[] = await getSocial();
