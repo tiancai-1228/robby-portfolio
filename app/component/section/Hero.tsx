@@ -28,7 +28,7 @@ const Hero = ({ pageInfo }: Prop) => {
       />
 
       <div className="z-20">
-        <h2 className="text-xs md:text-sm uppercase text-gray-500  tracking-[15px] pb-4">
+        <h2 className="text-xs md:text-sm uppercase text-gray-300  tracking-[15px] pb-4">
           {pageInfo?.role}
         </h2>
 

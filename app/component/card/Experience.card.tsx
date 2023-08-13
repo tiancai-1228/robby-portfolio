@@ -50,9 +50,9 @@ function ExperienceCard({ className, experience }: Prop) {
       />
 
       <div className="px-0 md:px-10">
-        <h4 className="text-base iphoneSE:text-2xl md:text-4xl font-light">
+        <h3 className="text-base iphoneSE:text-2xl md:text-4xl font-light">
           {experience.jobTitle}
-        </h4>
+        </h3>
         <p className=" font-bold text-sm iphoneSE:text-xl md:text-2xl  mt-1">
           {experience.company}
         </p>
