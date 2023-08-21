@@ -32,25 +32,27 @@ function ExperienceCard({ className, experience }: Prop) {
     <article
       ref={ref}
       className={twMerge(
-        "flex flex-col  rounded-lg items-center justify-center space-y-2 md:space-y-7 flex-shrink-0 w-[400px] md:w-[600px] xl:w-[900px] snap-center bg-[#292929] p-10  transition-all duration-500 overflow-hidden",
+        " relative flex flex-col  rounded-lg items-center justify-center space-y-2 md:space-y-7 flex-shrink-0 w-[400px] md:w-[600px] xl:w-[900px] snap-center bg-[#292929] p-10  transition-all duration-500 overflow-hidden",
         className
       )}
     >
-      <motion.img
-        initial={{ y: -100, opacity: 0 }}
-        transition={{ duration: 1.2 }}
-        whileInView={{
-          opacity: 1,
-          y: 0,
-        }}
-        sizes={"200"}
-        viewport={{ once: true }}
-        className="w-[100px] h-[100px] rounded-full xl:w-[200px] xl:h-[200px] object-cover object-center"
-        src={urlFor(experience.companyImage).url()}
-        alt={experience.company}
-      />
+      <div className="absolute top-[20px] w-full justify-center flex z-0 opacity-60">
+        <motion.img
+          initial={{ y: -100, opacity: 0 }}
+          transition={{ duration: 1.2 }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          sizes={"200"}
+          viewport={{ once: true }}
+          className="w-[100px] h-[100px]  rounded-full xl:w-[200px] xl:h-[200px] object-cover object-center"
+          src={urlFor(experience.companyImage).url()}
+          alt={experience.company}
+        />
+      </div>
 
-      <div className="px-0 md:px-10">
+      <div className="px-0 md:px-10 z-30 ">
         <h3 className="text-base iphoneSE:text-2xl md:text-4xl font-light">
           {experience.jobTitle}
         </h3>
