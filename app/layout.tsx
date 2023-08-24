@@ -1,4 +1,8 @@
 import "./style/globals.css";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/scrollbar";
+import "swiper/css/pagination";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {

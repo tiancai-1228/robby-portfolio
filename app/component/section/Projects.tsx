@@ -1,26 +1,19 @@
 "use client";
 
 import React from "react";
-import useScrollCard from "@/app/hook/useScrollCard";
-import { LeftOutlined, RightOutlined } from "@ant-design/icons";
 import { motion } from "framer-motion";
 import { I_project } from "@/app/service/interface";
 import { urlFor } from "@/app/service/client";
 import Skill from "../Skill";
+import { Swiper, SwiperSlide } from "swiper/react";
 
+// import required modules
+import { Pagination } from "swiper/modules";
 interface Prop {
   projects: I_project[];
 }
 
 const Projects = ({ projects }: Prop) => {
-  const {
-    listRef,
-    current,
-    handleOnScroll,
-    handleScrollRight,
-    handleScrollLeft,
-  } = useScrollCard({ cardLength: projects.length });
-
   const renderTech = (projects: I_project) => {
     return projects.technologies.map((tech, index) => (
       <Skill
@@ -36,9 +29,9 @@ const Projects = ({ projects }: Prop) => {
 
   const Project = () => {
     return projects.map((project) => (
-      <div
+      <SwiperSlide
         key={project._id}
-        className="w-screen h-full flex-shrink-0 snap-center flex flex-col space-y-2 items-center justify-center px-10 md:px-20 lg:p-[150px] "
+        className="w-screen h-full  flex-shrink-0 snap-center flex flex-col space-y-2 items-center justify-center px-10 md:px-20 lg:p-[150px] "
       >
         <motion.img
           initial={{ y: -300, opacity: 0 }}
@@ -66,7 +59,7 @@ const Projects = ({ projects }: Prop) => {
             {project.summary}
           </p>
         </div>
-      </div>
+      </SwiperSlide>
     ));
   };
 
@@ -78,39 +71,22 @@ const Projects = ({ projects }: Prop) => {
         opacity: 1,
       }}
       viewport={{ once: true }}
-      className="mt-[1px] h-screen relative flex flex-col justify-center items-center  max-w-full mx-auto px-0 md:px-10 "
+      className="mt-[1px] h-screen  relative flex flex-col justify-end items-center  max-w-full mx-auto px-0 md:px-10 "
     >
-      <h2 className="absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl font-semibold">
+      <h2 className=" absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl font-semibold">
         Project
       </h2>
 
-      <div className="w-screen absolute h-[85%] top-24 z-20">
-        {current !== 0 && (
-          <div className=" absolute left-0 top-0 h-full flex justify-center items-center w-10 ml-0 lg:ml-10  ">
-            <LeftOutlined
-              className="text-4xl cursor-pointer text-secondary z-30"
-              onClick={handleScrollLeft}
-            />
-          </div>
-        )}
-
-        <div
-          ref={listRef}
-          onScroll={handleOnScroll}
-          className="w-full h-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20 no-scrollbar"
-        >
-          {Project()}
-        </div>
-
-        {current !== projects.length - 1 && (
-          <div className=" absolute right-0 top-0 h-full flex justify-center items-center w-10 mr-0 lg:mr-10">
-            <RightOutlined
-              className="text-4xl cursor-pointer text-secondary z-30"
-              onClick={handleScrollRight}
-            />
-          </div>
-        )}
-      </div>
+      <Swiper
+        modules={[Pagination]}
+        className="w-full"
+        slidesPerView={1}
+        pagination={{
+          dynamicBullets: true,
+        }}
+      >
+        {Project()}
+      </Swiper>
 
       <div className="w-full absolute top-[30%] bg-secondary opacity-30 left-0 h-[400px] md:h-[500px] -skew-y-12" />
     </motion.div>

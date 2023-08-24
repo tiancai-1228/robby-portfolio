@@ -3,30 +3,23 @@
 import React from "react";
 import { motion } from "framer-motion";
 import ExperienceCard from "../card/Experience.card";
-import { LeftOutlined, RightOutlined } from "@ant-design/icons";
-import useScrollCard from "@/app/hook/useScrollCard";
 import { I_experience } from "@/app/service/interface";
+
+import { Swiper, SwiperSlide } from "swiper/react";
+
+// import required modules
+import { Pagination } from "swiper/modules";
 
 interface Prop {
   experience: I_experience[];
 }
 
 const Experience = ({ experience }: Prop) => {
-  const {
-    listRef,
-    current,
-    handleOnScroll,
-    handleScrollRight,
-    handleScrollLeft,
-  } = useScrollCard({ cardLength: experience.length });
-
   const renderExperience = () => {
-    return experience.map((el, index) => (
-      <ExperienceCard
-        key={el._id}
-        experience={el}
-        className={current == index ? "opacity-100" : "opacity-40"}
-      />
+    return experience.map((el) => (
+      <SwiperSlide key={el._id}>
+        <ExperienceCard key={el._id} experience={el} />
+      </SwiperSlide>
     ));
   };
 
@@ -38,39 +31,22 @@ const Experience = ({ experience }: Prop) => {
         opacity: 1,
       }}
       viewport={{ once: true }}
-      className="mt-[1px] h-screen relative flex flex-col justify-center items-center  max-w-7xl mx-auto px-10 "
+      className="mt-[1px] h-screen relative flex flex-col justify-end items-center  max-w-full mx-auto px-0 md:px-10  iphoneSE:justify-center"
     >
-      <h2 className="absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl font-semibold">
+      <h2 className="absolute iphoneSE:top-24 top-20 uppercase tracking-[20px] text-gray-500 text-2xl font-semibold ">
         Experience
       </h2>
 
-      <div className="w-full absolute h-[80%] top-24 ">
-        {current !== 0 && (
-          <div className=" absolute top-0 h-full left-0 flex justify-center items-center w-10">
-            <LeftOutlined
-              className="text-4xl cursor-pointer text-secondary z-30"
-              onClick={handleScrollLeft}
-            />
-          </div>
-        )}
-
-        <div
-          ref={listRef}
-          onScroll={handleOnScroll}
-          className="w-full h-full  flex space-x-5 overflow-x-scroll p-10 snap-x snap-mandatory"
-        >
-          {renderExperience()}
-        </div>
-
-        {current !== experience.length - 1 && (
-          <div className="absolute top-0 right-0 h-full flex justify-center items-center w-10">
-            <RightOutlined
-              className="text-4xl cursor-pointer text-secondary z-30"
-              onClick={handleScrollRight}
-            />
-          </div>
-        )}
-      </div>
+      <Swiper
+        modules={[Pagination]}
+        className="w-[80%]"
+        slidesPerView={1}
+        pagination={{
+          dynamicBullets: true,
+        }}
+      >
+        {renderExperience()}
+      </Swiper>
     </motion.div>
   );
 };

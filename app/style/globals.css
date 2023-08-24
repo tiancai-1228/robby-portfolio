@@ -27,3 +27,7 @@ body {
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
+
+.swiper-pagination-bullet {
+  background-color: #e4a002 !important;
+}

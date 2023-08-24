@@ -1,7 +1,7 @@
+import React, { useRef } from "react";
 import { urlFor } from "@/app/service/client";
 import { I_experience } from "@/app/service/interface";
 import { motion, useInView } from "framer-motion";
-import React, { useEffect, useRef } from "react";
 import { twMerge } from "tailwind-merge";
 import moment from "moment";
 import Skill from "../Skill";
@@ -32,11 +32,11 @@ function ExperienceCard({ className, experience }: Prop) {
     <article
       ref={ref}
       className={twMerge(
-        " relative flex flex-col  rounded-lg items-center justify-center space-y-2 md:space-y-7 flex-shrink-0 w-[400px] md:w-[600px] xl:w-[900px] snap-center bg-[#292929] p-10  transition-all duration-500 overflow-hidden",
+        "flex flex-col h-full  rounded-lg items-center justify-center space-y-2 md:space-y-7 flex-shrink-0 w-full snap-center bg-[#292929] p-10  transition-all duration-500 overflow-hidden",
         className
       )}
     >
-      <div className="absolute top-[20px] w-full justify-center flex z-0 opacity-60">
+      <div className=" w-full justify-center flex z-0 opacity-60">
         <motion.img
           initial={{ y: -100, opacity: 0 }}
           transition={{ duration: 1.2 }}
