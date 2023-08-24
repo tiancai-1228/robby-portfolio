@@ -41,7 +41,7 @@ const Contact = ({ pageInfo }: Prop) => {
         Contact
       </h2>
 
-      <div className="space-y-4 iphoneSE:space-y-10 w-full flex flex-col justify-center items-center mt-[140px] iphoneSE:mt-0 ">
+      <div className="space-y-4 iphoneSE:space-y-10 w-full flex flex-col justify-center items-center mt-[140px] iphoneSE:mt-[40px] ">
         <h3 className="text-xl md:text-4xl font-semibold text-center p-4 md:p-0 ">
           Any questions or suggestions welcome to contact me
         </h3>

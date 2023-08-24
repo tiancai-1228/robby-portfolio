@@ -31,7 +31,7 @@ const Experience = ({ experience }: Prop) => {
         opacity: 1,
       }}
       viewport={{ once: true }}
-      className="mt-[1px] h-screen relative flex flex-col justify-end items-center  max-w-full mx-auto px-0 md:px-10  iphoneSE:justify-center"
+      className="mt-[1px] h-screen relative flex flex-col justify-end items-center  max-w-6xl mx-auto px-0 md:p-10 overflow-hidden iphoneSE:justify-center"
     >
       <h2 className="absolute iphoneSE:top-24 top-20 uppercase tracking-[20px] text-gray-500 text-2xl font-semibold ">
         Experience

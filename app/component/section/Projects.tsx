@@ -42,7 +42,7 @@ const Projects = ({ projects }: Prop) => {
           }}
           viewport={{ once: true }}
           src={urlFor(project.image).url()}
-          className="w-[300px] h-[300px] md:w-[400px] md:h-[400px] xl:w-[800px] xl:h-[800px] object-cover object-center  "
+          className="w-[300px] h-[200px] md:w-[400px] md:h-[400px] xl:w-[800px] xl:h-[800px] object-cover object-center  "
           alt={project.title}
         />
 
@@ -71,15 +71,15 @@ const Projects = ({ projects }: Prop) => {
         opacity: 1,
       }}
       viewport={{ once: true }}
-      className="mt-[1px] h-screen  relative flex flex-col justify-end items-center  max-w-full mx-auto px-0 md:px-10 "
+      className="mt-[1px] h-screen relative flex flex-col justify-center items-center  max-w-full mx-auto px-0 md:px-10  "
     >
-      <h2 className=" absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl font-semibold">
+      <h2 className=" absolute top-24  uppercase tracking-[20px] text-gray-500 text-2xl font-semibold">
         Project
       </h2>
 
       <Swiper
         modules={[Pagination]}
-        className="w-full"
+        className="w-full h-full"
         slidesPerView={1}
         pagination={{
           dynamicBullets: true,
