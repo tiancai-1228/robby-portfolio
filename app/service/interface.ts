@@ -44,6 +44,7 @@ interface I_experience extends SanityBody {
   points: string[];
   dateStarted: string;
   dateEnded: string;
+  sort: number;
 }
 
 interface I_project extends SanityBody {
@@ -52,6 +53,7 @@ interface I_project extends SanityBody {
   technologies: I_skill[];
   linkToProject?: string;
   summary: string;
+  sort: number;
 }
 
 export type { I_social, I_pageInfo, I_skill, I_experience, I_project };

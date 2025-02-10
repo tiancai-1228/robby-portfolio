@@ -28,38 +28,40 @@ const Projects = ({ projects }: Prop) => {
   };
 
   const Project = () => {
-    return projects.map((project) => (
-      <SwiperSlide key={project._id}>
-        <div className="w-screen h-full  flex-shrink-0 snap-center flex flex-col space-y-2 items-center justify-center px-10 md:px-20 lg:p-[150px]">
-          <motion.img
-            initial={{ y: -300, opacity: 0 }}
-            transition={{ duration: 1.2 }}
-            whileInView={{
-              opacity: 1,
-              y: 0,
-            }}
-            viewport={{ once: true }}
-            src={urlFor(project.image).url()}
-            className="w-[300px] h-[200px]  md:w-[400px] md:h-[400px] xl:w-auto xl:h-[400px]  object-center  "
-            alt={project.title}
-          />
+    return projects
+      .sort((a, b) => a.sort - b.sort)
+      .map((project) => (
+        <SwiperSlide key={project._id}>
+          <div className="w-screen h-full  flex-shrink-0 snap-center flex flex-col space-y-2 items-center justify-center px-10 md:px-20 lg:p-[150px] cursor-grab  ">
+            <motion.img
+              initial={{ y: -300, opacity: 0 }}
+              transition={{ duration: 1.2 }}
+              whileInView={{
+                opacity: 1,
+                y: 0,
+              }}
+              viewport={{ once: true }}
+              src={urlFor(project.image).url()}
+              className="w-[300px] h-[200px]  md:w-[400px] md:h-[400px] xl:w-auto xl:h-[400px]  object-center  "
+              alt={project.title}
+            />
 
-          <div className="space-y-2 iphoneSE:space-y-4 md:space-y-6 px-0 md:px-10 max-w-6xl">
-            <h3 className=" text-2xl md:text-4xl font-semibold text-center">
-              {project.title}
-            </h3>
+            <div className="space-y-2 iphoneSE:space-y-4 md:space-y-6 px-0 md:px-10 max-w-6xl">
+              <h3 className=" text-2xl md:text-4xl font-semibold text-center">
+                {project.title}
+              </h3>
 
-            <div className="flex items-center justify-center space-x-2">
-              {renderTech(project)}
+              <div className="flex items-center justify-center space-x-2">
+                {renderTech(project)}
+              </div>
+
+              <p className="text-[12px]  iphoneSE:text-sm md:text-2xl">
+                {project.summary}
+              </p>
             </div>
-
-            <p className="text-[12px]  iphoneSE:text-sm md:text-2xl">
-              {project.summary}
-            </p>
           </div>
-        </div>
-      </SwiperSlide>
-    ));
+        </SwiperSlide>
+      ));
   };
 
   return (

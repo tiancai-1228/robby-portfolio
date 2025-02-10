@@ -16,11 +16,13 @@ interface Prop {
 
 const Experience = ({ experience }: Prop) => {
   const renderExperience = () => {
-    return experience.map((el) => (
-      <SwiperSlide key={el._id}>
-        <ExperienceCard key={el._id} experience={el} />
-      </SwiperSlide>
-    ));
+    return experience
+      .sort((a, b) => a.sort - b.sort)
+      .map((el) => (
+        <SwiperSlide key={el._id}>
+          <ExperienceCard key={el._id} experience={el} />
+        </SwiperSlide>
+      ));
   };
 
   return (
@@ -31,7 +33,7 @@ const Experience = ({ experience }: Prop) => {
         opacity: 1,
       }}
       viewport={{ once: true }}
-      className="mt-[1px] h-screen relative flex flex-col justify-center items-center  max-w-6xl mx-auto px-0 md:p-10 overflow-hidden"
+      className="mt-[1px] h-screen relative flex flex-col justify-center items-center  max-w-6xl mx-auto px-0 md:p-10 overflow-hidden cursor-grab "
     >
       <h2 className="absolute iphoneSE:top-24 top-20 uppercase tracking-[20px] text-gray-500 text-2xl font-semibold ">
         Experience
